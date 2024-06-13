@@ -74,12 +74,6 @@ public class Crear {
             }
         }
 
-        System.out.println(YELLOW + "||-------------------------------||" + RESET);
-        System.out.println(YELLOW + "||         NUEVA EXPEDICION      ||" + RESET);
-        System.out.println(YELLOW + "||-------------------------------||" + RESET);
-
-
-
 
         while(montaña == null){
             Scanner input = new Scanner(System.in);
@@ -94,6 +88,10 @@ public class Crear {
             }
             if(montaña == null) System.out.println(ANSI_RED_BACKGROUND + "Montana no encontrada" + ANSI_RESET_BACK);
         }
+
+        System.out.println(YELLOW + "||-------------------------------||" + RESET);
+        System.out.println(YELLOW + "||         NUEVA EXPEDICION      ||" + RESET);
+        System.out.println(YELLOW + "||-------------------------------||" + RESET);
 
 
         Scanner input = new Scanner(System.in);
