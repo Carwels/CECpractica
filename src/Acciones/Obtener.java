@@ -7,13 +7,13 @@ import Clases.Usuarios.Medico;
 
 import static BaseDeDatos.BD.*;
 import static BaseDeDatos.BD.listaExcursionistas;
-import static Otros.Ansi.RESET;
-import static Otros.Ansi.YELLOW;
+import static Otros.Ansi.*;
+
 
 public class Obtener {
     public static void verMontanas(){
         if(listaMontañas.isEmpty()){
-            System.err.println("No hay montanas que mostrar");
+            System.out.println(ANSI_RED_BACKGROUND + "No hay montanas que mostrar" + ANSI_RESET_BACK);
             return;
         }
         System.out.println(YELLOW + "||-------------------------------||" + RESET);
@@ -27,7 +27,7 @@ public class Obtener {
 
     public static void verExpediciones(){
         if(listaExpediciones.isEmpty()){
-            System.err.println("No hay expediciones que mostrar");
+            System.out.println(ANSI_RED_BACKGROUND + "No hay expediciones que mostrar" + ANSI_RESET_BACK);
             return;
         }
         System.out.println(YELLOW + "||-------------------------------||" + RESET);
@@ -42,7 +42,7 @@ public class Obtener {
 
     public static void verExcursionistas(){
         if(listaExcursionistas.isEmpty()){
-            System.err.println("No hay excursionistas que mostrar");
+            System.out.println(ANSI_RED_BACKGROUND + "No hay excursionistas que mostrar" + ANSI_RESET_BACK);
             return;
         }
         System.out.println(YELLOW + "||-------------------------------||" + RESET);

@@ -1,6 +1,8 @@
 package Acciones;
 
 import static BaseDeDatos.BD.*;
+import static Otros.Ansi.*;
+import static Otros.Ansi.ANSI_RESET_BACK;
 
 import Clases.Expedicion;
 import Clases.Montaña;
@@ -10,9 +12,6 @@ import Clases.Usuarios.Excursionista;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-
-import static Otros.Ansi.PURPLE;
-import static Otros.Ansi.RESET;
 
 public class Editar {
 
@@ -27,7 +26,7 @@ public class Editar {
             for(Expedicion e : listaExpediciones){
                 if(e.getNombre().equals(nombre)) expedicion = e;
             }
-            if(expedicion == null) System.err.println("Expedicion no encontrada");
+            if(expedicion == null) System.out.println(ANSI_RED_BACKGROUND + "Expedicion no encontrada" + ANSI_RESET_BACK);
         }
         while(seleccion == -1){
             System.out.println("1) Editar nombre");
@@ -57,7 +56,7 @@ public class Editar {
                         }
                     }
                     if(listaExc.isEmpty()){
-                        System.err.println("No hay mas excursionistas disponibles");
+                        System.out.println(ANSI_RED_BACKGROUND + "No hay mas excursionistas disponibles!" + ANSI_RESET_BACK);
                         return;
                     }
                     String nombre = input.nextLine().toLowerCase();
@@ -83,7 +82,7 @@ public class Editar {
                             return;
                         }
                     }
-                    System.err.println("Excursionista no encontrado");
+                    System.out.println(ANSI_RED_BACKGROUND + "Excursionista no encontrado" + ANSI_RESET_BACK);
                 }
             case 4:
                 List<Alpinista> listaAlps = new ArrayList<>();
@@ -131,7 +130,7 @@ public class Editar {
             for(Montaña m : listaMontañas){
                 if(m.getNombre().equals(nombre)) montaña = m;
             }
-            if(montaña == null) System.err.println("Montaña no encontrada");
+            if(montaña == null) System.out.println(ANSI_RED_BACKGROUND + "Montana no encontrada" + ANSI_RESET_BACK);
         }
         while(seleccion == -1){
             System.out.println("1) Editar nombre");
@@ -150,7 +149,7 @@ public class Editar {
                 break;
             case 2:
                 if(montaña.getListaAlpinista().isEmpty()){
-                    System.err.println("Ningun alpinista ha llegado a la cima");
+                    System.out.println(ANSI_RED_BACKGROUND + "Ningun alpinista ha llegado a la cima!" + ANSI_RESET_BACK);
                     return;
                 }
                 while(true){
@@ -166,7 +165,7 @@ public class Editar {
                             return;
                         }
                     }
-                    System.err.println("Excursionista no encontrado");
+                    System.out.println(ANSI_RED_BACKGROUND + "Excursionista no encontrado" + ANSI_RESET_BACK);
                 }
             case 3:
                 eliminarMontaña(montaña);
@@ -185,7 +184,7 @@ public class Editar {
             for(Excursionista e : listaExcursionistas){
                 if(e.getNombre().equals(nombre)) excursionista = e;
             }
-            if(excursionista == null) System.err.println("Excursionista no encontrado");
+            if(excursionista == null) System.out.println(ANSI_RED_BACKGROUND + "Excursionista no encontrado!" + ANSI_RESET_BACK);
         }
         while(seleccion == -1){
             System.out.println("1) Editar nombre");
@@ -226,7 +225,7 @@ public class Editar {
                     if(!expedicionEliminar.isEmpty()) {
                         expedicionEliminar.get(0).getListaExcursionista().remove(excursionista);
                     }
-                    if(expedicionEliminar.isEmpty()) System.err.println("Expedicion no encontrada");
+                    if(expedicionEliminar.isEmpty()) System.out.println(ANSI_RED_BACKGROUND + "Expedicion no encontrada" + ANSI_RESET_BACK);
                 }
                 break;
             case 3:
@@ -251,7 +250,7 @@ public class Editar {
                             return;
                         }
                     }
-                    System.err.println("Montana no encontrada");
+                    System.out.println(ANSI_RED_BACKGROUND + "Montana no encontrada" + ANSI_RESET_BACK);
                 }
         }
 
@@ -263,6 +262,7 @@ public class Editar {
         for(Expedicion e : montaña.getListaExpedicion()){
             eliminarExpedicion(e);
         }
+        // mirar si contiene la montana
         for(Excursionista e : listaExcursionistas){
             if(e instanceof Alpinista) ((Alpinista) e).getListaMontañas().remove(montaña);
         }
@@ -320,7 +320,7 @@ public class Editar {
 
             }
             if(input < 0 || input > 6){
-                System.out.println("Introduce un número dentro de la seleccion");
+                System.out.println(ANSI_RED_BACKGROUND + "Introduce un numero dentro de la seleccion" + ANSI_RESET_BACK);
             }
         }
         return input;

@@ -16,11 +16,9 @@ import static Otros.Ansi.*;
 import static Otros.Ansi.RESET;
 
 public class Crear {
-    public static void nuevaMontaña(){
-        // eliminar
-        catalogo = new Catalogo("CEC", "PrimerCatalogo");
-        //
 
+
+    public static void nuevaMontaña(){
         System.out.println(YELLOW + "||-------------------------------||" + RESET);
         System.out.println(YELLOW + "||         NUEVA MONTANA         ||" + RESET);
         System.out.println(YELLOW + "||-------------------------------||" + RESET);
@@ -44,10 +42,10 @@ public class Crear {
         Montaña montaña = null;
 
         if(listaMontañas.isEmpty()){
-            System.err.println("No existen motanas");
+            System.out.println(ANSI_RED_BACKGROUND + "No existen montanas" + ANSI_RESET_BACK);
             return;
         } else if (listaExcursionistas.isEmpty()) {
-            System.err.println("No existen excursionistas");
+            System.out.println(ANSI_RED_BACKGROUND + "No existen excursionistas" + ANSI_RESET_BACK);
             return;
         }
 
@@ -57,7 +55,7 @@ public class Crear {
         }
 
         if (listaMedicos.isEmpty()){
-            System.err.println("No hay medicos disponibles");
+            System.out.println(ANSI_RED_BACKGROUND + "No hay medicos disponibles" + ANSI_RESET_BACK);
             return;
         }
         else{
@@ -72,7 +70,7 @@ public class Crear {
                     if(m.getNombre().matches(nombreMedico)) medico = m;
 
                 }
-                if(medico == null) System.err.println("Medico no encontrado");
+                if(medico == null) System.out.println(ANSI_RED_BACKGROUND + "Medico no encontrado" + ANSI_RESET_BACK);
             }
         }
 
@@ -94,7 +92,7 @@ public class Crear {
                 if(m.getNombre().matches(nombreMontaña)) montaña = m;
 
             }
-            if(montaña == null) System.err.println("Montana no encontrada.");
+            if(montaña == null) System.out.println(ANSI_RED_BACKGROUND + "Montana no encontrada" + ANSI_RESET_BACK);
         }
 
 
@@ -129,8 +127,8 @@ public class Crear {
             System.out.println(PURPLE + "Introduce el tipo de excursionista: MEDICO o ALPINISTA" + RESET);
             String i = input.nextLine().toLowerCase();
             if(i.matches("medico")) excursionista = new Medico(nombre);
-            if(i.matches("alpinista")) excursionista = new Alpinista(nombre);
-            else System.err.println("Tipo no reconocido");
+            else if (i.matches("alpinista")) excursionista = new Alpinista(nombre);
+            else System.out.println(ANSI_RED_BACKGROUND + "Tipo no reconocido" + ANSI_RESET_BACK);
         }
         System.out.println(YELLOW + "||-------------------------------||" + RESET);
         System.out.println(GREEN + "Excursionista creado: " + nombre + RESET);

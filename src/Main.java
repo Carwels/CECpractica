@@ -1,17 +1,33 @@
 import Acciones.Crear;
 import Acciones.Obtener;
-import BaseDeDatos.BD;
 import Clases.Catalogo;
+import Clases.Expedicion;
+import Clases.Montaña;
+import Clases.Usuarios.Excursionista;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
+import static BaseDeDatos.BD.*;
 import static Otros.Ansi.*;
 import static Otros.Ansi.RESET;
 
 public class Main {
+
+    public Catalogo catalogo1;
+
     public static void main(String[] args) {
+        Main main = new Main();
+        main.generarCatalogo();
         ejecutarPrograma();
     }
+
+    public void generarCatalogo(){
+        catalogo1 = new Catalogo("CEC", "Catalogo1");
+        catalogo = catalogo1;
+    }
+
 
     public static void ejecutarPrograma(){
         imprimirCabecera();
@@ -30,9 +46,9 @@ public class Main {
 
     private static void imprimirMenu(){
         System.out.println(PURPLE + "Escoge una de las siguientes opciones:" + RESET);
-        System.out.println("1) Ver lista de montanas ---------> " + YELLOW + BD.listaMontañas.size() +  "  montanas." + RESET);
-        System.out.println("2) Ver lista de expediciones -----> " + YELLOW + BD.listaExpediciones.size() +  "  expediciones." + RESET);
-        System.out.println("3) Ver lista de excursionistas --> " + YELLOW + BD.listaExcursionistas.size() +  "  excursionistas." + RESET);
+        System.out.println("1) Ver lista de montanas ---------> " + YELLOW + listaMontañas.size() +  "  montanas." + RESET);
+        System.out.println("2) Ver lista de expediciones -----> " + YELLOW + listaExpediciones.size() +  "  expediciones." + RESET);
+        System.out.println("3) Ver lista de excursionistas --> " + YELLOW + listaExcursionistas.size() +  "  excursionistas." + RESET);
         System.out.println("4) Anadir nueva montana");
         System.out.println("5) Anadir nueva expedicion");
         System.out.println("6) Anadir nuevo excursionista");
@@ -80,11 +96,10 @@ public class Main {
             }
             catch (NumberFormatException e){
                 System.out.println("Introduce un número \n");
-                imprimirMenu();
 
             }
             if(input < 0 || input > 6){
-                System.out.println("Introduce un número dentro de la seleccion");
+                System.out.println(ANSI_RED_BACKGROUND + "Introduce un numero dentro de la seleccion" + ANSI_RESET_BACK);
                 imprimirMenu();
             }
         }
