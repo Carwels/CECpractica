@@ -5,6 +5,8 @@ import Clases.Montaña;
 import Clases.Usuarios.Excursionista;
 import Clases.Usuarios.Medico;
 
+import java.util.Scanner;
+
 import static BaseDeDatos.BD.*;
 import static BaseDeDatos.BD.listaExcursionistas;
 import static Otros.Ansi.*;
@@ -22,8 +24,8 @@ public class Obtener {
         for(Montaña m : listaMontañas){
             System.out.println(m.getNombre());
         }
-        System.out.println(YELLOW + "Editar?" + RESET);
-        Editar.editarMontaña();
+        if(editar()) Editar.editarMontaña();
+
     }
 
     public static void verExpediciones(){
@@ -37,7 +39,7 @@ public class Obtener {
         for(Expedicion e : listaExpediciones){
             System.out.println(e.getNombre());
         }
-        Editar.editarExpedicion();
+        if(editar())Editar.editarExpedicion();
 
     }
 
@@ -54,6 +56,19 @@ public class Obtener {
             if(e instanceof Medico) System.out.println("Tipo: Medico");
             else System.out.println("Tipo: Alpinista");
         }
-        Editar.editarExcursionista();
+        if(editar())Editar.editarExcursionista();
     }
+
+    public static boolean editar(){
+        Scanner kb = new Scanner(System.in);
+        while(true){
+            System.out.println(YELLOW + "Editar? Y/N" + RESET);
+            String input = kb.nextLine().toLowerCase();
+            if(input.matches("y")){
+                return true;
+            }
+            if (input.matches("n")) return false;
+        }
+    }
+
 }

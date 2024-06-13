@@ -21,7 +21,7 @@ public class Editar {
 
         while(expedicion == null){
             Scanner input = new Scanner(System.in);
-            System.out.println(PURPLE + "Selecciona la expedicion a editar:" + RESET);
+            System.out.println(PURPLE + "Introduce el nombre de la expedicion a editar:" + RESET);
             String nombre = input.nextLine().toLowerCase();
             for(Expedicion e : listaExpediciones){
                 if(e.getNombre().equals(nombre)) expedicion = e;
@@ -48,7 +48,7 @@ public class Editar {
             case 2:
                 while(true){
                     List<Excursionista> listaExc = new ArrayList<>();
-                    System.out.println(PURPLE + "Selecciona el excursionista a anadir:" + RESET);
+                    System.out.println(PURPLE + "Introduce el nombre del excursionista a anadir:" + RESET);
                     for(Excursionista e : listaExcursionistas){
                         if(!expedicion.getListaExcursionista().contains(e)){
                             listaExc.add(e);
@@ -70,7 +70,7 @@ public class Editar {
                 }
             case 3:
                 while(true){
-                    System.out.println(PURPLE + "Selecciona el excursionista a eliminar:" + RESET);
+                    System.out.println(PURPLE + "Introduce el nombre del excursionista a eliminar:" + RESET);
                     for(Excursionista e : expedicion.getListaExcursionista()){
                         System.out.println(e.getNombre());
                     }
@@ -125,7 +125,7 @@ public class Editar {
 
         while(montaña == null){
             Scanner input = new Scanner(System.in);
-            System.out.println(PURPLE + "Selecciona la montaña a editar:" + RESET);
+            System.out.println(PURPLE + "Introduce el nombre de la montaña a editar:" + RESET);
             String nombre = input.nextLine().toLowerCase();
             for(Montaña m : listaMontañas){
                 if(m.getNombre().equals(nombre)) montaña = m;
@@ -153,7 +153,7 @@ public class Editar {
                     return;
                 }
                 while(true){
-                    System.out.println(PURPLE + "Selecciona el excursionista a eliminar:" + RESET);
+                    System.out.println(PURPLE + "Introduce el nombre del excursionista a eliminar:" + RESET);
                     for(Alpinista a : montaña.getListaAlpinista()){
                         System.out.println(a.getNombre());
                     }
@@ -179,7 +179,7 @@ public class Editar {
 
         while(excursionista == null){
             Scanner input = new Scanner(System.in);
-            System.out.println(PURPLE + "Selecciona el excursionista a editar:" + RESET);
+            System.out.println(PURPLE + "Introduce el nombre del excursionista a editar:" + RESET);
             String nombre = input.nextLine().toLowerCase();
             for(Excursionista e : listaExcursionistas){
                 if(e.getNombre().equals(nombre)) excursionista = e;
@@ -238,7 +238,7 @@ public class Editar {
                         System.out.println("El excursionista no ha llegado a ninguna cima");
                         break;
                     }
-                    System.out.println(PURPLE + "Selecciona la montana a eliminar:" + RESET);
+                    System.out.println(PURPLE + "Introduce el nombre de la montana a eliminar:" + RESET);
                     for(Montaña m : alpinista.getListaMontañas()){
                         System.out.println(m.getNombre());
                     }
