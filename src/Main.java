@@ -1,12 +1,6 @@
 import Acciones.Crear;
 import Acciones.Obtener;
 import Clases.Catalogo;
-import Clases.Expedicion;
-import Clases.Montaña;
-import Clases.Usuarios.Excursionista;
-
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 import static BaseDeDatos.BD.*;

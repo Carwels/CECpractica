@@ -22,6 +22,7 @@ public class Obtener {
         for(Montaña m : listaMontañas){
             System.out.println(m.getNombre());
         }
+        System.out.println(YELLOW + "Editar?" + RESET);
         Editar.editarMontaña();
     }
 
